@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class OpenSoftAssertions {
+public class OpenSoftAssertionsTest {
     @Test
     public void openSoftAssertions(){
 
@@ -30,10 +30,8 @@ public class OpenSoftAssertions {
         $(".repo-list .v-align-middle").click();
         $("#wiki-tab").click();
         $(".wiki-more-pages-link button").click();
-        $(byText("SoftAssertions")).shouldHave(text("SoftAssertions"));
         $(byText("SoftAssertions")).click();
         $(".markdown-body").shouldHave(text("3. Using JUnit5 extend test class:"));
         $(".markdown-body").shouldHave(text(str));
-        $("#code-tab").click();
     }
 }
