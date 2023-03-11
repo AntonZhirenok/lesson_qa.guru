@@ -12,9 +12,7 @@ dependencies {
             "org.junit.jupiter:junit-jupiter:5.8.2")
 }
 
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
-}
+
 
 test {
     useJUnitPlatform()
