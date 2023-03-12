@@ -30,6 +30,7 @@ public class TestData {
     String hobby = hobbiess[new Random().nextInt(hobbiess.length)];
     String state = states[new Random().nextInt(states.length)];
     String cite = getRandomCity(state);
+    String uploadFile  = "lesson_3/123.png";
 
     public String getRandomCity(String state) {
         switch (state) {

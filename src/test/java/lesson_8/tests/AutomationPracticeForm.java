@@ -20,7 +20,7 @@ public class AutomationPracticeForm {
                 .setDateOfBirth(testData.year, testData.month,testData.day)
                 .setSubjects(testData.subject)
                 .setHobbies(testData.hobby)
-                .setPictureLoading("lesson_3/123.png")
+                .setPictureLoading(testData.uploadFile)
                 .setAddress(testData.address)
                 .setState(testData.state)
                 .setCity(testData.cite)
@@ -36,5 +36,6 @@ public class AutomationPracticeForm {
                 .verifyResult("Picture","123.png")
                 .verifyResult("Address",testData.address)
                 .verifyResult("State and City",testData.state + " " + testData.cite);
+
     }
 }
