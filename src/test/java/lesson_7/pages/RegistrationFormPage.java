@@ -15,7 +15,6 @@ public class RegistrationFormPage {
             userEmailInput  = $("#userEmail"),
             userNumberInput  = $("#userNumber"),
             subjectsInput = $("#subjectsInput"),
-            hobbiesSportsCheckBox = $(byText("Sports")),
             pictureLoading = $("#uploadPicture"),
             addressInput = $("#currentAddress"),
             submitButton = $("#submit");
