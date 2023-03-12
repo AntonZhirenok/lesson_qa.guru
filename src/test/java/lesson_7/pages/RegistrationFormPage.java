@@ -13,16 +13,17 @@ public class RegistrationFormPage {
             firstNameInput  = $("#firstName"),
             lastNameInput  = $("#lastName"),
             userEmailInput  = $("#userEmail"),
-            genderOther  = $(byText("Other")),
             userNumberInput  = $("#userNumber"),
             subjectsInput = $("#subjectsInput"),
-            hobbiesSportsCheckBox = $(byText("Sports")),
             pictureLoading = $("#uploadPicture"),
             addressInput = $("#currentAddress"),
             submitButton = $("#submit");
 
     public RegistrationFormPage openPage(){
         open("https://demoqa.com/automation-practice-form");
+        return this;
+    }
+    public RegistrationFormPage removeBanner(){
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
@@ -43,8 +44,8 @@ public class RegistrationFormPage {
         return this;
     }
 
-    public RegistrationFormPage setOther(){
-        genderOther.click();
+    public RegistrationFormPage setGender(String gender){
+        $(byText(gender)).click();
         return this;
     }
 
@@ -64,13 +65,13 @@ public class RegistrationFormPage {
         return this;
     }
 
-    public RegistrationFormPage setHobbiesSports(){
-        hobbiesSportsCheckBox.parent().click();
+    public RegistrationFormPage setHobbies(String hobbies){
+        $(byText(hobbies)).parent().click();
         return this;
     }
 
-    public RegistrationFormPage setPictureLoading(){
-        pictureLoading.uploadFromClasspath("lesson_3\\123.png");
+    public RegistrationFormPage setPictureLoading(String path){
+        pictureLoading.uploadFromClasspath(path);
         return this;
     }
 
