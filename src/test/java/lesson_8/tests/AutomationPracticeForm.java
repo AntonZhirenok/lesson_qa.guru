@@ -36,5 +36,6 @@ public class AutomationPracticeForm {
                 .verifyResult("Picture","123.png")
                 .verifyResult("Address",testData.address)
                 .verifyResult("State and City",testData.state + " " + testData.cite);
+
     }
 }
