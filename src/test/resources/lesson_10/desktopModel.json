@@ -1,0 +1,14 @@
+{
+  "name": "ROG Strix G15 Gaming Desktop PC",
+  "specifics": ["Game","Work", "hobbies"],
+  "operatingSystem": "Windows",
+  "storageMemory": "1TB",
+  "ramMemory": "16GB",
+  "CPUModel": "intel",
+  "screenSize": 1,
+  "screen": {
+      "name": "LG 24GN600-B UltraGear Gaming",
+      "ScreenSize": "23.8",
+      "Brand": "LG"
+  }
+}
