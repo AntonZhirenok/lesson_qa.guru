@@ -3,6 +3,7 @@ package lesson_10.tests;
 import com.codeborne.pdftest.PDF;
 import com.codeborne.xlstest.XLS;
 import com.google.common.io.Files;
+import com.google.gson.Gson;
 import com.opencsv.CSVReader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -42,29 +43,25 @@ public class FileTest {
             }
         }
     }
+
     @Test
     void jsonTest() throws Exception {
 
+        Gson gson = new Gson();
 
+        try (InputStream is = cl.getResourceAsStream("lesson_10/desktopModel.json");
+             InputStreamReader isr = new InputStreamReader(is)) {
+            Desktop desktop = gson.fromJson(isr,Desktop.class);
+            Assertions.assertEquals(1, desktop.screenSize);
+            Assertions.assertEquals("ROG Strix G15 Gaming Desktop PC", desktop.name);
+            Assertions.assertEquals("Windows", desktop.operatingSystem);
+            Assertions.assertEquals("1TB", desktop.storageMemory);
+            Assertions.assertEquals("16GB", desktop.ramMemory);
+            Assertions.assertEquals("intel", desktop.CPUModel);
+            Assertions.assertEquals("LG", desktop.screen.Brand);
+            Assertions.assertEquals("23.8", desktop.screen.ScreenSize);
+            Assertions.assertEquals("LG 24GN600-B UltraGear Gaming", desktop.screen.name);
+            Assertions.assertEquals("Game", desktop.specifics.get(0));
+        }
     }
 }
-
-
-
-
-    /**
-     {
-     "name": "Иван",
-     "age": 37,
-     "mother": {
-     "name": "Ольга",
-     "age": 58
-     },
-     "children": [
-     "Маша",
-     "Игорь",
-     "Таня"
-     ],
-     "married": true,
-     "dog": null
-     }*/
