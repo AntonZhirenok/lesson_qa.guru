@@ -2,7 +2,7 @@ package lesson_10.tests;
 
 import java.util.List;
 
-public class Desktop {
+public class DesktopModel {
 
     public String name;
     public List<String> specifics;

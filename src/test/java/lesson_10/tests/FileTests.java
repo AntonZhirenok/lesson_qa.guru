@@ -14,9 +14,9 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-public class FileTest {
+public class FileTests {
 
-    private ClassLoader cl = FileTest.class.getClassLoader();
+    private ClassLoader cl = FileTests.class.getClassLoader();
 
     @Test
     void zippedTest() throws Exception {
@@ -49,9 +49,9 @@ public class FileTest {
 
         Gson gson = new Gson();
 
-        try (InputStream is = cl.getResourceAsStream("lesson_10/desktopModel.json");
+        try (InputStream is = cl.getResourceAsStream("lesson_10/desktop.json");
              InputStreamReader isr = new InputStreamReader(is)) {
-            Desktop desktop = gson.fromJson(isr,Desktop.class);
+            DesktopModel desktop = gson.fromJson(isr, DesktopModel.class);
             Assertions.assertEquals(1, desktop.screenSize);
             Assertions.assertEquals("ROG Strix G15 Gaming Desktop PC", desktop.name);
             Assertions.assertEquals("Windows", desktop.operatingSystem);
