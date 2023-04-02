@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.stream.Stream;
 
-public class CreditCalculatorTests {
+public class CreditCalculatorTests extends TestBase {
 
     StepOnePage stepOnePage = new StepOnePage();
     StepTwoPage stepTwoPage = new StepTwoPage();
@@ -29,8 +29,6 @@ public class CreditCalculatorTests {
     })
     @ParameterizedTest()
     public void writeFormApplicationLoanValueSource(String testData){
-        Configuration.browserSize = "2560x1440";
-        stepOnePage.openPage();
         stepOnePage.verifyHeaderStepOne("Заявка на кредит наличными или рефинансирование");
         stepOnePage.setLastName("Жиренок");
         stepOnePage.setFirstName("Антон");
@@ -49,8 +47,6 @@ public class CreditCalculatorTests {
     })
     @ParameterizedTest()
     public void writeFormApplicationLoanCsvSource(String lastName, String firstName, String middleName){
-        Configuration.browserSize = "2560x1440";
-        stepOnePage.openPage();
         stepOnePage.verifyHeaderStepOne("Заявка на кредит наличными или рефинансирование");
         stepOnePage.setLastName(lastName);
         stepOnePage.setFirstName(firstName);
@@ -65,8 +61,6 @@ public class CreditCalculatorTests {
     @MethodSource()
     @ParameterizedTest()
     public void writeFormApplicationLoanMethodSource(String lastName, String firstName, String middleName,String phone, String email){
-        Configuration.browserSize = "2560x1440";
-        stepOnePage.openPage();
         stepOnePage.verifyHeaderStepOne("Заявка на кредит наличными или рефинансирование");
         stepOnePage.setLastName(lastName);
         stepOnePage.setFirstName(firstName);
