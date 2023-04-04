@@ -2,6 +2,7 @@ package lesson_10.tests;
 
 import com.codeborne.pdftest.PDF;
 import com.codeborne.xlstest.XLS;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.Files;
 import com.google.gson.Gson;
 import com.opencsv.CSVReader;
@@ -47,11 +48,11 @@ public class FileTests {
     @Test
     void jsonTest() throws Exception {
 
-        Gson gson = new Gson();
+        ObjectMapper map = new ObjectMapper();
 
         try (InputStream is = cl.getResourceAsStream("lesson_10/desktop.json");
              InputStreamReader isr = new InputStreamReader(is)) {
-            DesktopModel desktop = gson.fromJson(isr, DesktopModel.class);
+            DesktopModel desktop = map.readValue(isr, DesktopModel.class);
             Assertions.assertEquals(1, desktop.screenSize);
             Assertions.assertEquals("ROG Strix G15 Gaming Desktop PC", desktop.name);
             Assertions.assertEquals("Windows", desktop.operatingSystem);
