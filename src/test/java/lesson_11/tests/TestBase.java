@@ -17,9 +17,6 @@ public class TestBase {
     public void before() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         Configuration.browserSize = "2560x1440";
-
-        step("Открываем главную страницу",()->{
             mainPage.openPage();
-        });
     }
 }
