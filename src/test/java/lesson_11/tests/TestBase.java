@@ -7,8 +7,6 @@ import io.qameta.allure.selenide.AllureSelenide;
 import lesson_11.pages.MainPage;
 import org.junit.jupiter.api.BeforeEach;
 
-import static io.qameta.allure.Allure.step;
-
 public class TestBase {
 
     MainPage mainPage = new MainPage();

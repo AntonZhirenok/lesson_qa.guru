@@ -1,12 +1,10 @@
 package lesson_11.tests;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
-import io.qameta.allure.selenide.AllureSelenide;
 import lesson_11.pages.MainPage;
 import lesson_11.pages.ProjectIssuesPage;
 import lesson_11.pages.SearchPage;
