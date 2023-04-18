@@ -21,107 +21,107 @@ public class RegistrationFormPage {
             addressInput = $("#currentAddress"),
             submitButton = $("#submit");
 
-    @Step("Открыть страницу /automation-practice-form")
+    //@Step("Открыть страницу /automation-practice-form")
     public RegistrationFormPage openPage(){
         open("https://demoqa.com/automation-practice-form");
         return this;
     }
 
-    @Step("Удалить рекламный баннер")
+    //@Step("Удалить рекламный баннер")
     public RegistrationFormPage removeBanner(){
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
 
-    @Step("Ввести значение {firstName}")
+   // @Step("Ввести значение {firstName}")
     public RegistrationFormPage setFirstName(String firstName){
         firstNameInput.setValue(firstName);
         return this;
     }
 
-    @Step("")
+    //@Step("")
     public RegistrationFormPage setLastName(String lastName){
         lastNameInput.setValue(lastName);
         return this;
     }
 
-    @Step("")
+    //@Step("")
     public RegistrationFormPage setUserEmail(String userEmail){
         userEmailInput.setValue(userEmail);
         return this;
     }
 
-    @Step("")
+    //@Step("")
     public RegistrationFormPage setGender(String gender){
         $(byText(gender)).click();
         return this;
     }
 
-    @Step("")
+    //@Step("")
     public RegistrationFormPage setUserNumber(String userNumber){
         userNumberInput.setValue(userNumber);
         return this;
     }
 
-    @Step("")
+    //@Step("")
     public RegistrationFormPage setDateOfBirth(String year, String month, String day){
         $(".react-datepicker-wrapper").click();
         calendarComponent.setData(year, month, day);
         return this;
     }
 
-    @Step("")
+    //@Step("")
     public RegistrationFormPage setSubjects(String subjects){
         subjectsInput.setValue(subjects).pressEnter();
         return this;
     }
 
-    @Step("")
+    //@Step("")
     public RegistrationFormPage setHobbies(String hobbies){
         $(byText(hobbies)).parent().click();
         return this;
     }
 
-    @Step("")
+    //@Step("")
     public RegistrationFormPage setPictureLoading(String path){
         pictureLoading.uploadFromClasspath(path);
         return this;
     }
 
-    @Step("")
+    //@Step("")
     public RegistrationFormPage setAddress(String address){
         addressInput.setValue(address);
         return this;
     }
 
-    @Step("")
+    //@Step("")
     public RegistrationFormPage setState(String state){
         $("#state").click();
         $(byText(state)).click();
         return this;
     }
 
-    @Step("")
+   // @Step("")
     public RegistrationFormPage setCity(String city){
         $("#city").click();
         $(byText(city)).click();
         return this;
     }
 
-    @Step("")
+    //@Step("")
     public RegistrationFormPage submit(){
         submitButton.click();
         return this;
     }
 
-    @Step("")
+    //@Step("")
     public RegistrationFormPage verifyModal(){
         resultModal.verifyModal();
         return this;
     }
 
-    @Step("")
+    //@Step("")
     public RegistrationFormPage verifyResult(String key, String value){
         resultModal.verifyResult(key, value);
         return this;
