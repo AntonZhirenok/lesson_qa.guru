@@ -21,44 +21,44 @@ public class RegistrationFormPage {
             addressInput = $("#currentAddress"),
             submitButton = $("#submit");
 
-    //@Step("Открыть страницу /automation-practice-form")
+    @Step("Открыть страницу /automation-practice-form")
     public RegistrationFormPage openPage(){
         open("https://demoqa.com/automation-practice-form");
         return this;
     }
 
-    //@Step("Удалить рекламный баннер")
+    @Step("Удалить рекламный баннер")
     public RegistrationFormPage removeBanner(){
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
 
-   // @Step("Ввести значение {firstName}")
+    @Step("Ввести значение Имя {firstName}")
     public RegistrationFormPage setFirstName(String firstName){
         firstNameInput.setValue(firstName);
         return this;
     }
 
-    //@Step("")
+    @Step("Ввести значение Фамилия{lastName}")
     public RegistrationFormPage setLastName(String lastName){
         lastNameInput.setValue(lastName);
         return this;
     }
 
-    //@Step("")
+    @Step("Ввести значение Email {lastName}")
     public RegistrationFormPage setUserEmail(String userEmail){
         userEmailInput.setValue(userEmail);
         return this;
     }
 
-    //@Step("")
+    @Step("Выбрать гендер")
     public RegistrationFormPage setGender(String gender){
         $(byText(gender)).click();
         return this;
     }
 
-    //@Step("")
+    @Step("Ввести значение телефона {userNumber}")
     public RegistrationFormPage setUserNumber(String userNumber){
         userNumberInput.setValue(userNumber);
         return this;
