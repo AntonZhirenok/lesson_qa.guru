@@ -24,8 +24,8 @@ repositories {
 
 dependencies {
     testImplementation (
-            "com.codeborne:selenide:6.12.2",
-            "org.junit.jupiter:junit-jupiter:5.8.2",
+            "com.codeborne:selenide:6.12.3",
+            "org.junit.jupiter:junit-jupiter:5.9.2",
             "com.github.javafaker:javafaker:1.0.2",
             'com.opencsv:opencsv:5.7.1',
             'com.codeborne:pdf-test:1.8.1',
@@ -34,7 +34,6 @@ dependencies {
             'com.fasterxml.jackson.core:jackson-core:2.15.0-rc2',
             'com.fasterxml.jackson.core:jackson-databind:2.15.0-rc2',
             'io.qameta.allure:allure-selenide:2.21.0'
-
     )
 }
 
@@ -47,4 +46,10 @@ compileTestJava {
 
 test {
     useJUnitPlatform()
+}
+
+task testForm(type: Test){
+    useJUnitPlatform{
+        includeTags("form")
+    }
 }
