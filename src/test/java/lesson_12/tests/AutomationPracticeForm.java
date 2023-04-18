@@ -1,9 +1,15 @@
 package lesson_12.tests;
 
 
+import com.codeborne.selenide.Configuration;
 import lesson_12.pages.RegistrationFormPage;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 
 public class AutomationPracticeForm {
 
@@ -13,33 +19,45 @@ public class AutomationPracticeForm {
     @Test
     @Tag("form")
     void formTest(){
-        registrationFormPage
-                .openPage()
-                .removeBanner()
-                .setFirstName(testData.firstName)
-                .setLastName(testData.lastName)
-                .setUserEmail(testData.email)
-                .setGender(testData.gender)
-                .setUserNumber(testData.phoneNumber)
-                .setDateOfBirth(testData.year, testData.month,testData.day)
-                .setSubjects(testData.subject)
-                .setHobbies(testData.hobby)
-                .setPictureLoading(testData.uploadFile)
-                .setAddress(testData.address)
-                .setState(testData.state)
-                .setCity(testData.cite)
-                .submit()
-                .verifyModal()
-                .verifyResult("Student Name",testData.firstName + " " + testData.lastName)
-                .verifyResult("Student Email",testData.email)
-                .verifyResult("Gender",testData.gender)
-                .verifyResult("Mobile",testData.phoneNumber)
-                .verifyResult("Date of Birth",testData.day + " " + testData.month + "," + testData.year)
-                .verifyResult("Subjects",testData.subject)
-                .verifyResult("Hobbies",testData.hobby)
-                .verifyResult("Picture","123.png")
-                .verifyResult("Address",testData.address)
-                .verifyResult("State and City",testData.state + " " + testData.cite);
+        Configuration.browserSize = "1920x1080";
+
+        open("https://demoqa.com/automation-practice-form");
+
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+
+        $("#firstName").setValue("Zhirenok");
+        $("#lastName").setValue("Anton");
+        $("#userEmail").setValue("zhirenok@list.ru");
+        $(byText("Other")).click();
+        $("#userNumber").setValue("8962880222");
+        $(".react-datepicker-wrapper").click();
+        $(".react-datepicker__month-select").$(byText("May")).click();
+        $(".react-datepicker__year-select").$(byText("1997")).click();
+        $(".react-datepicker__day--013").click();
+        $("#subjectsInput").setValue("English").pressEnter();
+        $(byText("Sports")).click();
+        $("#hobbies-checkbox-3").parent().click();
+        $("#uploadPicture").uploadFromClasspath("lesson_3\\123.png");
+        $("#currentAddress").setValue("Lenina street 174");
+        $("#state").click();
+        $(byText("NCR")).click();
+        $("#city").click();
+        $(byText("Noida")).click();
+        $("#submit").click();
+
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $(".modal-body").shouldHave(text("Zhirenok Anton"));
+        $(".modal-body").shouldHave(text("zhirenok@list.ru"));
+        $(".modal-body").shouldHave(text("Other"));
+        $(".modal-body").shouldHave(text("8962880222"));
+        $(".modal-body").shouldHave(text("13 May,1997"));
+        $(".modal-body").shouldHave(text("English"));
+        $(".modal-body").shouldHave(text("Sports, Music"));
+        $(".modal-body").shouldHave(text("123.png"));
+        $(".modal-body").shouldHave(text("Lenina street 174"));
+        $(".modal-body").shouldHave(text("NCR Noida"));
+        $("#closeLargeModal").click();
 
     }
 }
