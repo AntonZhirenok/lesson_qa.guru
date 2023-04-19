@@ -27,26 +27,26 @@ public class RegistrationFormPage {
         return this;
     }
 
-    @Step("Удалить рекламный баннер")
+    @Step("закрыть рекламный баннер")
     public RegistrationFormPage removeBanner(){
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
 
-    @Step("Ввести значение Имя {firstName}")
+    @Step("Ввести значениев поле Имя {firstName}")
     public RegistrationFormPage setFirstName(String firstName){
         firstNameInput.setValue(firstName);
         return this;
     }
 
-    @Step("Ввести значение Фамилия{lastName}")
+    @Step("Ввести значение в поле Фамилия {lastName}")
     public RegistrationFormPage setLastName(String lastName){
         lastNameInput.setValue(lastName);
         return this;
     }
 
-    @Step("Ввести значение Email {lastName}")
+    @Step("Ввести значение в поле Email {userEmail}")
     public RegistrationFormPage setUserEmail(String userEmail){
         userEmailInput.setValue(userEmail);
         return this;
@@ -58,70 +58,70 @@ public class RegistrationFormPage {
         return this;
     }
 
-    @Step("Ввести значение телефона {userNumber}")
+    @Step("Ввести значение в поле телефон {userNumber}")
     public RegistrationFormPage setUserNumber(String userNumber){
         userNumberInput.setValue(userNumber);
         return this;
     }
 
-    //@Step("")
+    @Step("Выбрать дату {day} {month} {year}")
     public RegistrationFormPage setDateOfBirth(String year, String month, String day){
         $(".react-datepicker-wrapper").click();
         calendarComponent.setData(year, month, day);
         return this;
     }
 
-    //@Step("")
+    @Step("Выюрать субьект")
     public RegistrationFormPage setSubjects(String subjects){
         subjectsInput.setValue(subjects).pressEnter();
         return this;
     }
 
-    //@Step("")
+    @Step("Выбрать хобби")
     public RegistrationFormPage setHobbies(String hobbies){
         $(byText(hobbies)).parent().click();
         return this;
     }
 
-    //@Step("")
+    @Step("Загрузить фото")
     public RegistrationFormPage setPictureLoading(String path){
         pictureLoading.uploadFromClasspath(path);
         return this;
     }
 
-    //@Step("")
+    @Step("Заполнить поле адрес {address}")
     public RegistrationFormPage setAddress(String address){
         addressInput.setValue(address);
         return this;
     }
 
-    //@Step("")
+    @Step("Выбрать область {state}")
     public RegistrationFormPage setState(String state){
         $("#state").click();
         $(byText(state)).click();
         return this;
     }
 
-   // @Step("")
+    @Step("Выбрать город {city}")
     public RegistrationFormPage setCity(String city){
         $("#city").click();
         $(byText(city)).click();
         return this;
     }
 
-    //@Step("")
+    @Step("Нажать кнопку")
     public RegistrationFormPage submit(){
         submitButton.click();
         return this;
     }
 
-    //@Step("")
+    @Step("Проверить заголовок формы")
     public RegistrationFormPage verifyModal(){
         resultModal.verifyModal();
         return this;
     }
 
-    //@Step("")
+    @Step("Проверить значение в форме {value}")
     public RegistrationFormPage verifyResult(String key, String value){
         resultModal.verifyResult(key, value);
         return this;

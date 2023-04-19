@@ -1,6 +1,5 @@
 package lesson_12.tests;
 
-
 import lesson_12.pages.RegistrationFormPage;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -42,6 +41,5 @@ public class AutomationPracticeForm extends TestBase {
                 .verifyResult("Picture","123.png")
                 .verifyResult("Address",testData.address)
                 .verifyResult("State and City",testData.state + " " + testData.cite);
-
     }
 }
