@@ -1,19 +1,21 @@
 package lesson_12.tests;
 
-
 import lesson_12.pages.RegistrationFormPage;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class AutomationPracticeForm {
+import static com.codeborne.selenide.Selenide.open;
+
+public class AutomationPracticeForm extends TestBase {
 
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
     TestData testData = new TestData();
 
     @Test
-    @Tag("form")
+    @Tag("lesson12")
     void formTest(){
-        registrationFormPage.openPage()
+        open("/automation-practice-form" );
+        registrationFormPage
                 .removeBanner()
                 .setFirstName(testData.firstName)
                 .setLastName(testData.lastName)
@@ -39,6 +41,5 @@ public class AutomationPracticeForm {
                 .verifyResult("Picture","123.png")
                 .verifyResult("Address",testData.address)
                 .verifyResult("State and City",testData.state + " " + testData.cite);
-
     }
 }

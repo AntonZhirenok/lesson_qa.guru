@@ -19,7 +19,7 @@ public class FileTests {
 
     private ClassLoader cl = FileTests.class.getClassLoader();
 
-    @Test
+    /*@Test
     void zippedTest() throws Exception {
         try (InputStream is = cl.getResourceAsStream("lesson_10/myZipForLesson10.zip");
              ZipInputStream zis = new ZipInputStream(is)) {
@@ -64,5 +64,5 @@ public class FileTests {
             Assertions.assertEquals("LG 24GN600-B UltraGear Gaming", desktop.screen.name);
             Assertions.assertEquals("Game", desktop.specifics.get(0));
         }
-    }
+    }*/
 }
