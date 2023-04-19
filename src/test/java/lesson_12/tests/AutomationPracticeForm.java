@@ -14,7 +14,7 @@ public class AutomationPracticeForm extends TestBase {
     @Test
     @Tag("lesson12")
     void formTest(){
-        open("/automation-practice-form");
+        open("/automation-practice-form" );
         registrationFormPage
                 .removeBanner()
                 .setFirstName(testData.firstName)
