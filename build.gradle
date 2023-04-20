@@ -53,3 +53,9 @@ task lesson12(type: Test){
         includeTags("lesson12")
     }
 }
+
+task lesson13(type: Test){
+    useJUnitPlatform{
+        includeTags("lesson13")
+    }
+}
