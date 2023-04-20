@@ -48,8 +48,14 @@ test {
     useJUnitPlatform()
 }
 
-task testForm(type: Test){
-    useJUnitPlatform{
+task testForm(type: Test) {
+    useJUnitPlatform {
         includeTags("form")
+    }
+}
+
+task lesson13(type: Test) {
+    useJUnitPlatform {
+        includeTags("lesson13")
     }
 }
